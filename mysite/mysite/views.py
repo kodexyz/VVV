@@ -5,7 +5,9 @@ from django.template import loader
 
 def index(request):
     template = loader.get_template('mysite/index.html')
-    context = {'hola':'adios'}
-    return HttpResponse(template.render(context, request))
+    return HttpResponse(template.render())
 
 
+def blog(request):
+    template = loader.get_template('mysite/blog.html')
+    return HttpResponse(template.render())
