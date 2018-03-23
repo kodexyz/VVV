@@ -12,13 +12,13 @@ class BlogPost(models.Model):
     title = models.CharField(max_length=70)
     # date = models.DateField()
     content = models.TextField()
-    ispublished = models.BooleanField()
+    is_published = models.BooleanField()
     tags = [models.CharField(max_length=70)]
-    datepulished = models.DateTimeField(default=timezone.now())
-    lastedit = models.DateTimeField(auto_now=True)
+    date_published = models.DateTimeField(default=timezone.now)
+    last_edit = models.DateTimeField(auto_now=True)
 
     def create(self):
-        self.lastedit = datetime.now()
+        self.last_edit = datetime.now
         if len(self.title) < 1:
             self.title = input("Title: ")
         if len(self.content) < 1:
