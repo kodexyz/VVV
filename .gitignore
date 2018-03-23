@@ -75,3 +75,4 @@ tags
 out
 gen
 *.hidden
+/mysite/db.sqlite3
