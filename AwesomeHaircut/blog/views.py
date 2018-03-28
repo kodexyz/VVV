@@ -9,6 +9,16 @@ from .models import BlogPost
 
 def index(request):
     template = loader.get_template('mysite/blog.html')
-    return HttpResponse(template.render())
+    context = {
+        'last_post' : BlogPost.objects.all()[0].title
+    }
+    return HttpResponse(template.render(context, request))
 
 
+def blog_post(request, title):
+        template = loader.get_template('mysite/post.html')
+        context = {
+            'title':title,
+            'content': BlogPost.objects.all()[0].content
+        }
+        return HttpResponse(template.render(context, request))
