@@ -22,5 +22,5 @@ urlpatterns = [
     path('', views.index),
     path('blog/', include('blog.urls')),
     path('admin/', admin.site.urls),
-
+    path('<str:notfound>', views.notfound, name='notfound')
 ]

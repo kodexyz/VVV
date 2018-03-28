@@ -8,4 +8,13 @@ def index(request):
     return HttpResponse(template.render())
 
 
+def notfound(request, notfound):
+    template = loader.get_template('mysite/notfound.html')
+    context = {
+        'path' : notfound
+    }
+    return HttpResponse(template.render(context, request))
 
+
+def about(request):
+    return notfound(request, 'About')

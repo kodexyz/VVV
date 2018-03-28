@@ -10,3 +10,5 @@ from .models import BlogPost
 def index(request):
     template = loader.get_template('mysite/blog.html')
     return HttpResponse(template.render())
+
+
