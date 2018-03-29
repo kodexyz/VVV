@@ -5,5 +5,14 @@
 <p>This is my Blog! </p>
 <p>Read it! Show it to your friends! Call your grandma (or the oldest person you know, they are your grandma now) I bet she misess you! And then show her this blog! It's about knitting!</p>
     <p>latest blog: <a href="./{{ last_post }}">{{ last_post }}</a></p>
+    <div class="centered">
+        <ul>
+        {% for post in all_posts %}
+            <li>
+                <a href="./{{ post }}">{{ post }}</a>
+            </li>
+         {% endfor %}
+        </ul>
+    </div>
 </div>
 </body>
