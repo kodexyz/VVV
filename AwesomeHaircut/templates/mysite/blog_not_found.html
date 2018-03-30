@@ -1,0 +1,18 @@
+{% include "mysite/base.html" %}
+
+<body>
+<div class="readmode">
+<p>This is my Blog! </p>
+    <p>I haven't written <strike>{{ title }}</strike> yet :-)<p>
+    <p>latest blog: <a href="./{{ last_post }}">{{ last_post }}</a></p>
+    <div class="centered">
+        <ul>
+        {% for post in all_posts %}
+            <li>
+                <a href="./{{ post }}">{{ post }}</a>
+            </li>
+         {% endfor %}
+        </ul>
+    </div>
+</div>
+</body>

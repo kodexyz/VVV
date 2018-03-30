@@ -1,25 +1,39 @@
 from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse
+from django.http import Http404
 
 from .models import BlogPost
 
 # Create your views here.
 
+all_posts = [i.title for i in BlogPost.objects.all()]
+
 
 def index(request):
     template = loader.get_template('mysite/blog.html')
     context = {
-        'last_post': BlogPost.objects.all()[0].title,
-        'all_posts': [i.title for i in BlogPost.objects.all()]
+        'last_post': all_posts[0],
+        'all_posts': all_posts
     }
     return HttpResponse(template.render(context, request))
 
 
 def blog_post(request, post_title):
-        template = loader.get_template('mysite/post.html')
+    if post_title not in all_posts:
+        template = loader.get_template('mysite/blog_not_found.html')
         context = {
-            'title':  post_title,
-            'content': BlogPost.objects.get(title=str(post_title)).content
+            'last_post': all_posts[0],
+            'all_posts': all_posts,
+            'title': post_title,
+            'content': "How about a sonnet?\nNo\nshe exclaimed."
         }
         return HttpResponse(template.render(context, request))
+
+    template = loader.get_template('mysite/post.html')
+    context = {
+        'title':  post_title,
+        'content': BlogPost.objects.get(title=str(post_title)).content
+    }
+    return HttpResponse(template.render(context, request))
+

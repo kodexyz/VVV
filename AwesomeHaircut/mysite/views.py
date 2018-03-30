@@ -11,10 +11,11 @@ def index(request):
 def notfound(request, notfound):
     template = loader.get_template('mysite/notfound.html')
     context = {
-        'path' : notfound
+        'path': notfound
     }
     return HttpResponse(template.render(context, request))
 
 
 def about(request):
-    return notfound(request, 'About')
+    template = loader.get_template('mysite/about.html')
+    return HttpResponse(template.render())
