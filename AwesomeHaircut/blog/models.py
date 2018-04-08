@@ -17,13 +17,5 @@ class BlogPost(models.Model):
     date_published = models.DateTimeField(default=timezone.now)
     last_edit = models.DateTimeField(auto_now=True)
 
-    def create(self):
-        self.last_edit = datetime.now
-        if len(self.title) < 1:
-            self.title = input("Title: ")
-        if len(self.content) < 1:
-            self.content = input("Start typing:")
-        self.tags = input("Tags?").split(',')
-
     def __str__(self):
         return self.title  
