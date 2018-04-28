@@ -9,7 +9,7 @@ def index(request):
 
 
 def notfound(request, notfound):
-    template = loader.get_template('mysite/notfound.html')
+    template = loader.get_template('blog/notfound.html')
     context = {
         'path': notfound
     }
