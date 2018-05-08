@@ -11,7 +11,7 @@ all_posts = [i.title for i in BlogPost.objects.all()]
 
 
 def index(request):
-    template = loader.get_template('mysite/blog.html')
+    template = loader.get_template('blog/blog.html')
     context = {
         'last_post': all_posts[0],
         'all_posts': all_posts
@@ -21,7 +21,7 @@ def index(request):
 
 def blog_post(request, post_title):
     if post_title not in all_posts:
-        template = loader.get_template('mysite/blog_not_found.html')
+        template = loader.get_template('blog/blog_not_found.html')
         context = {
             'last_post': all_posts[0],
             'all_posts': all_posts,
@@ -30,7 +30,7 @@ def blog_post(request, post_title):
         }
         return HttpResponse(template.render(context, request))
 
-    template = loader.get_template('mysite/post.html')
+    template = loader.get_template('blog/post.html')
     context = {
         'title':  post_title,
         'content': BlogPost.objects.get(title=str(post_title)).content
