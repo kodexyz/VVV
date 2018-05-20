@@ -26,6 +26,9 @@ SECRET_KEY = '=zt^*$1b3fn#6hescc%se91z03a+6np0m^7cn%0k=7^a%(kpy9'
 DEBUG = False
 
 ALLOWED_HOSTS = ['www.awesomehaircut.xyz']
+if DEBUG:
+    ALLOWED_HOSTS = ALLOWED_HOSTS + ['*']
+    INTERNAL_IPS = '127.0.0.1'
 
 
 # Application definition
@@ -38,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
