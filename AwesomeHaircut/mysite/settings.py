@@ -23,13 +23,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '=zt^*$1b3fn#6hescc%se91z03a+6np0m^7cn%0k=7^a%(kpy9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+with open('debug') as r:
+    val = r.readline()
+    if not val.startswith('T') or not val.startswith('F'):
+        pass
+    DEBUG = eval(val)
 
-ALLOWED_HOSTS = ['www.awesomehaircut.xyz']
+ALLOWED_HOSTS = ['localhost',
+                 'www.awesomehaircut.xyz']
 if DEBUG:
     ALLOWED_HOSTS = ALLOWED_HOSTS + ['*']
     INTERNAL_IPS = '127.0.0.1'
-
+print('Debugging set to', DEBUG, '\nAllowed hosts:', ALLOWED_HOSTS)
 
 # Application definition
 
