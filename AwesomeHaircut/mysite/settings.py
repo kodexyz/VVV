@@ -23,12 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '=zt^*$1b3fn#6hescc%se91z03a+6np0m^7cn%0k=7^a%(kpy9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-with open('debug') as r:
-    val = r.readline()
-    if not val.startswith('T') or not val.startswith('F'):
-        pass
-    DEBUG = eval(val)
-
+DEBUG = False
 ALLOWED_HOSTS = ['localhost',
                  'www.awesomehaircut.xyz']
 if DEBUG:
