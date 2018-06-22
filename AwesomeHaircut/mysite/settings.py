@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '=zt^*$1b3fn#6hescc%se91z03a+6np0m^7cn%0k=7^a%(kpy9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['localhost',
                  'www.awesomehaircut.xyz']
 if DEBUG:
@@ -32,16 +32,21 @@ if DEBUG:
 print('Debugging set to', DEBUG, '\nAllowed hosts:', ALLOWED_HOSTS)
 
 # Application definition
-
+SITE_ID = 1
 INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_comments',
     'debug_toolbar',
+    'mptt',
+    'tagging',
+    'zinnia',
 ]
 
 MIDDLEWARE = [

@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.urls import include, path
 from django.conf import settings
+from django.contrib import admin
 
 from . import views
 
@@ -22,10 +23,10 @@ urlpatterns = [
     path('', views.index),
     path('blog/', include('blog.urls')),
     path('about/', views.about),
-    path('<str:notfound>', views.notfound, name='notfound'),
+    path('blogg/', include('zinnia.urls')),
+    path('blogcomments/', include('django_comments.urls')),
 ]
 
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns = urlpatterns + [path('debug/', include(debug_toolbar.urls))]
-
