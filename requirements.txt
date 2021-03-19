@@ -18,7 +18,7 @@ django-xmlrpc==0.1.8
 future==0.16.0
 gunicorn==19.8.1
 idna==2.7
-Jinja2==2.10
+Jinja2==2.11.3
 jinja2-time==0.2.0
 MarkupSafe==1.0
 mots-vides==2015.5.11
